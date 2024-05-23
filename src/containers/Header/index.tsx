@@ -1,9 +1,9 @@
-import Headertitulo from "../../components/Headertitulo"
+import Headertitulo from "../../components/Headertitulo";
 
 const Header = () => (
     <div>
-        <Headertitulo>Minhas miniaturas Batmóveis</Headertitulo>
+        <Headertitulo><b>Bem-vindo ao Site</b></Headertitulo>
     </div>
-)
+);
 
-export default Header
+export default Header;

@@ -1,21 +1,27 @@
-/* eslint-disable jsx-a11y/alt-text */
-import styles from './Post.module.css';
-
+import React from 'react';
+import {
+    PostContainer,
+    PostImage,
+    PostText,
+} from './styles';
 import PostComments from '../PostComments';
 import { ReactNode } from 'react';
 
 type Props = {
     children: ReactNode;
-    imageUrl: string;
-}
+    imageUrl?: string | null;
+};
 
 const Post = ({ children, imageUrl }: Props) => (
-    // eslint-disable-next-line react/jsx-no-comment-textnodes
-    <div className={styles.post}>
-        <img className={styles['post-image']} src={imageUrl} />
-        <p className={styles['post-text']}> {children} </p>
+    <PostContainer>
+        {imageUrl ? (
+            <PostImage src={imageUrl} alt="Post image" />
+        ) : (
+            <p>Nenhuma imagem selecionada</p>
+        )}
+        <PostText>{children}</PostText>
         <PostComments />
-    </div>
+    </PostContainer>
 );
 
 export default Post;

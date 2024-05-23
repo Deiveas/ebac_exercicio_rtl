@@ -1,6 +1,12 @@
-type Props = {
-    children: string;
-}
-const Headertitulo = (props: Props) => <span>{props.children}</span>
+import React, { ReactNode } from 'react';
+import { TituloSpan } from './styles';
 
-export default Headertitulo
+type Props = {
+    children: ReactNode;
+}
+
+const Headertitulo = ({ children }: Props) => (
+    <TituloSpan>{children}</TituloSpan>
+);
+
+export default Headertitulo;

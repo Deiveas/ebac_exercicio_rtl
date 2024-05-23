@@ -1,9 +1,9 @@
-import { FormEvent, useState } from 'react';
-import styles from './PostComments.module.css';
+import React, { FormEvent, useState } from 'react';
+import { CommentList, CommentItem, CommentContent, CommentForm, CommentTextarea, CommentButton } from './styles';
 
 import Comment from '../../models/Comment';
 
-const Post = () => {
+const PostComments = () => {
     const [comments, setComments] = useState<Comment[]>([]);
     const [tempComment, setTempComment] = useState('');
 
@@ -16,23 +16,23 @@ const Post = () => {
 
     return (
         <div>
-            <ul className={styles['post-comments']}>
+            <CommentList>
                 {comments.map(({ comment, id }) => (
-                    <li className={styles['post-comment']} key={id}>
-                        <p className={styles['post-comment-content']}>
-                            {comment}
-                        </p>
-                    </li>
+                    <CommentItem key={id}>
+                        <CommentContent>{comment}</CommentContent>
+                    </CommentItem>
                 ))}
-            </ul>
-            <form onSubmit={handleAddComment} className={styles['post-comments-form']}>
-                <textarea value={tempComment} onChange={e => setTempComment(e.target.value)} required className={styles['post-comments-form-textarea']} />
-                <button type="submit" className={styles['post-comments-form-button']}>
-                    Comentar
-                </button>
-            </form>
+            </CommentList>
+            <CommentForm onSubmit={handleAddComment}>
+                <CommentTextarea
+                    value={tempComment}
+                    onChange={e => setTempComment(e.target.value)}
+                    required
+                />
+                <CommentButton type="submit">Comentar</CommentButton>
+            </CommentForm>
         </div>
     );
 }
 
-export default Post;
+export default PostComments;

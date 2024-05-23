@@ -1,4 +1,4 @@
-// src/components/Form.styles.ts
+
 import styled from 'styled-components';
 
 export const FormContainer = styled.form`
@@ -46,6 +46,6 @@ export const ImageItem = styled.img`
   width: 100%;
   height: auto; /* Permitindo que a altura seja ajustada automaticamente */
   max-height: 100px; /* Definindo uma altura máxima para todas as imagens */
-  border: 1px solid #ccc;
+  border: 1px solid ${(props) => props.theme.corBorder};
   border-radius: 4px;
 `;
